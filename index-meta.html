@@ -28,15 +28,24 @@
     <!-- THIS CALLS THE SCRIPT THAT GETS THE MEI SCORE -->
 <!--    <script src="js/index.js"></script>-->
 <script>
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange=function() {
-  if (this.readyState == 4 && this.status == 200) {
-    document.getElementById("meta").innerHTML =
-    this.getAllResponseHeaders();
-  }
-};
-xmlhttp.open("GET", "data/example.mei", true);
-xmlhttp.send();
+function loadMEIDoc() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myFuncion(this);
+    }
+  };
+  xmlhttp.open("GET", "data/example.mei", true);
+  xmlhttp.send();
+}
+
+function myFunction(xml) {
+  var x, parser, meiDoc;
+  parser = new DOMParser();
+  meiDoc = parser.parseFromString(xml.responseText, "text/xml")
+  x = meiDoc.querySelector('title')
+document.getElementById("meta").innerHTML = x;
+}
 </script>
 <!-- <script>
 var xhr = new XMLHttpRequest()
