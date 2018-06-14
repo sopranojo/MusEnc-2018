@@ -39,32 +39,32 @@ xmlhttp.onreadystatechange=function() {
 xmlhttp.open("GET", "data/example.mei", true);
 xmlhttp.send();*/
 
-var xhr = new XMLHttpRequest();
-xhr.open('GET', 'data/example.mei'); // <-- change this to the right file
-xhr.send(null);
+var xhr = new XMLHttpRequest()
+xhr.open('GET', 'data/example.mei') // <-- change this to the right file
+xhr.send(null)
 
 /* Deal with the response */
 xhr.onreadystatechange = function () {
-  var DONE = 4;
-  var OK = 200;
+  var DONE = 4
+  var OK = 200
   if (xhr.readyState === DONE) {
     if (xhr.status === OK) {
       // Get performance data
-      var parser = new DOMParser();
-      var meiDoc = parser.parseFromString(xhr.responseText,"text/xml");
+      var parser = new DOMParser()
+      var meiDoc = parser.parseFromString(xhr.responseText,"text/xml")
 
-      var recording = meiDoc.querySelector('title');
-      var avFile = recording.querySelector('avFile[targettype="youtube"]').getAttribute('target');
-      var clipEls = recording.querySelectorAll('clip');
+      var recording = meiDoc.querySelector('title')
+      var avFile = recording.querySelector('avFile[targettype="youtube"]').getAttribute('target')
+      var clipEls = recording.querySelectorAll('clip')
 
       document.getElementById("meta").innerHTML =
-      recording;
+      recording
     else {
         /* Tell us an error happened */
         console.log('Error: ' + xhr.status)
-      };
-    };
-  };
+      }
+    }
+  }
 
 </script>
   </body>
