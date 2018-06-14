@@ -38,13 +38,14 @@ xmlhttp.onreadystatechange=function() {
 };
 xmlhttp.open("GET", "data/example.mei", true);
 xmlhttp.send();
-
-/*var xhr = new XMLHttpRequest()
-xhr.open('GET', 'data/example.mei') // <-- change this to the right file
-xhr.send(null)*/
+</script>
+<!-- <script>
+var xhr = new XMLHttpRequest()
+xhr.open('GET', 'data/example.mei') /* change this to the right file */
+xhr.send(null)
 
 /* Deal with the response */
-/*xhr.onreadystatechange = function () {
+xhr.onreadystatechange = function () {
   var DONE = 4
   var OK = 200
   if (xhr.readyState === DONE) {
@@ -59,14 +60,14 @@ xhr.send(null)*/
 
       document.getElementById("meta").innerHTML =
       recording
-    else {*/
+    else {
         /* Tell us an error happened */
-/*        console.log('Error: ' + xhr.status)
+        console.log('Error: ' + xhr.status)
       }
     }
-  }*/
+  }
 
-</script>
+</script>-->
   </body>
 
 </html>
