@@ -28,25 +28,33 @@
     <!-- THIS CALLS THE SCRIPT THAT GETS THE MEI SCORE -->
 <!--    <script src="js/index.js"></script>-->
 <script>
-function loadMEIDoc() {
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange=function() {
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      myFuncion(this);
+        myFunction(this);
     }
-  };
-  xmlhttp.open("GET", "data/example.mei", true);
-  xmlhttp.send();
-}
+};
+xhttp.open("GET", "data/example.mei", true);
+xhttp.send();
 
 function myFunction(xml) {
-  var x, parser, meiDoc;
-  parser = new DOMParser();
-  meiDoc = parser.parseFromString(xml.responseText, "text/xml")
-  x = meiDoc.querySelector('title')
-document.getElementById("meta").innerHTML = x;
+    var xmlDoc = xml.responseXML;
+    document.getElementById("meta").innerHTML =
+    xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;
 }
 </script>
+
+<!-- <script>
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange=function() {
+  if (this.readyState == 4 && this.status == 200) {
+    document.getElementById("meta").innerHTML =
+    this.getAllResponseHeaders();
+  }
+};
+xmlhttp.open("GET", "data/example.mei", true);
+xmlhttp.send();
+</script> -->
 <!-- <script>
 var xhr = new XMLHttpRequest()
 xhr.open('GET', 'data/example.mei') /* change this to the right file */
