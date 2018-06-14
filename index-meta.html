@@ -28,23 +28,25 @@
     <!-- THIS CALLS THE SCRIPT THAT GETS THE MEI SCORE -->
 <!--    <script src="js/index.js"></script>-->
 <script>
- /*var xmlhttp = new XMLHttpRequest();
+ var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange=function() {
   if (this.readyState == 4 && this.status == 200) {
+      var parser = new.DOMParser()
+      var meiDoc = parser.parseFromString(this.responseText,"text/xml")
       var recording = this.querySelector('title')
       document.getElementById("meta").innerHTML =
-      this.getAllResponseHeaders();
+      this.getAllResponseHeaders() + recording;
     }
 };
 xmlhttp.open("GET", "data/example.mei", true);
-xmlhttp.send();*/
+xmlhttp.send();
 
-var xhr = new XMLHttpRequest()
+/*var xhr = new XMLHttpRequest()
 xhr.open('GET', 'data/example.mei') // <-- change this to the right file
-xhr.send(null)
+xhr.send(null)*/
 
 /* Deal with the response */
-xhr.onreadystatechange = function () {
+/*xhr.onreadystatechange = function () {
   var DONE = 4
   var OK = 200
   if (xhr.readyState === DONE) {
@@ -59,12 +61,12 @@ xhr.onreadystatechange = function () {
 
       document.getElementById("meta").innerHTML =
       recording
-    else {
+    else {*/
         /* Tell us an error happened */
-        console.log('Error: ' + xhr.status)
+/*        console.log('Error: ' + xhr.status)
       }
     }
-  }
+  }*/
 
 </script>
   </body>
