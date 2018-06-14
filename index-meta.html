@@ -30,10 +30,10 @@
 <script>
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange=function() {
-if (this.readyState == 4 && this.status == 200) {
-document.getElementById("meta").innerHTML =
-this.getAllResponseHeaders();
-}
+  if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("meta").innerHTML =
+      this.getAllResponseHeaders();
+    }
 };
 xmlhttp.open("GET", "data/example.mei", true);
 xmlhttp.send();
