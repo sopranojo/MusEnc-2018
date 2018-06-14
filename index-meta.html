@@ -31,8 +31,9 @@
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange=function() {
   if (this.readyState == 4 && this.status == 200) {
+      var recording = this.querySelector('title')
       document.getElementById("meta").innerHTML =
-      this.getAllResponseHeaders();
+      recording;
     }
 };
 xmlhttp.open("GET", "data/example.mei", true);
