@@ -50,12 +50,12 @@ xhr.onreadystatechange = function () {
   if (xhr.readyState === DONE) {
     if (xhr.status === OK) {
       // Get performance data
-      var parser = new DOMParser()
-      var meiDoc = parser.parseFromString(xhr.responseText,"text/xml")
+      var parser = new DOMParser();
+      var meiDoc = parser.parseFromString(xhr.responseText,"text/xml");
 
-      var recording = meiDoc.querySelector('title')
-      var avFile = recording.querySelector('avFile[targettype="youtube"]').getAttribute('target')
-      var clipEls = recording.querySelectorAll('clip')
+      var recording = meiDoc.querySelector('title');
+      var avFile = recording.querySelector('avFile[targettype="youtube"]').getAttribute('target');
+      var clipEls = recording.querySelectorAll('clip');
 
       document.getElementById("meta").innerHTML =
       recording;
