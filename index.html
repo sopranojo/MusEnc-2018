@@ -16,6 +16,8 @@
     <div id="content">
       <!-- ADD YOUR HTML CONTENT HERE! -->
       <h1>My project</h1>
+      <p id="meta"></p>
+
     </div>
 
     <!-- **** DO NO EDIT BELOW THIS LINE **** -->
@@ -24,7 +26,34 @@
       <!-- THIS IS WHERE THE SCORE GOES AUTOMATICALLY -->
     </div>
     <!-- THIS CALLS THE SCRIPT THAT GETS THE MEI SCORE -->
-    <script src="js/index.js"></script>
+   <script src="js/index.js"></script>
+    <script>
+      var xhr = new XMLHttpRequest()
+      xhr.open('GET', 'data/clara.mei') // <-- change this to the right file
+      xhr.send(null)
+
+      /* Deal with the response */
+      xhr.onreadystatechange = function () {
+        var DONE = 4
+        var OK = 200
+        if (xhr.readyState === DONE) {
+          if (xhr.status === OK) {
+            var parser = new DOMParser()
+            var meiDoc = parser.parseFromString(xhr.responseText,"text/xml")
+            document.querySelector("#meta").innerHTML += "<h3>" + meiDoc.querySelector("[*|id='m-10']").textContent +"</h3>"
+            document.querySelector("#meta").innerHTML += "<p><h3>" + meiDoc.querySelector("[*|id='title5']").textContent +"</p>"
+            document.querySelector("#meta").innerHTML += "<p>" + meiDoc.querySelector("[*|id='m-11']").textContent +"</p>"
+            document.querySelector("#meta").innerHTML += "<p>" + meiDoc.querySelector("[*|id='m-13']").textContent +"</p>"
+            document.querySelector("#meta").innerHTML += "<p> edited by " + meiDoc.querySelector("[*|id='revise1']").textContent + "</p>"
+            document.querySelector("#meta").innerHTML += "<p>" + meiDoc.querySelector("[*|id='name3']").textContent + meiDoc.querySelector("[*|id='name4']").textContent +"</p>"
+            document.querySelector("#meta").innerHTML += "<p><a href=\"" + meiDoc.querySelector("[*|id='titleMain']").getAttribute('authURI') + "\">"
+            document.querySelector("#meta").innerHTML += meiDoc.querySelector("[*|id='titleMain']").getAttribute('authority') +"</a></p>"
+            document.querySelector("#meta").innerHTML += "<p><a href=\"" + meiDoc.querySelector("[*|id='genre1']").getAttribute('authURI') + "\">"
+            document.querySelector("#meta").innerHTML += meiDoc.querySelector("[*|id='genre1']").getAttribute('authority') +"</a></p>"
+          }
+        }
+      }
+    </script>
   </body>
 
 </html>

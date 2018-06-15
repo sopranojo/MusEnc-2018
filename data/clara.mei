@@ -1,26 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?><mei xmlns="http://www.music-encoding.org/ns/mei" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="m-1" meiversion="3.0.0">
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/music-encoding/music-encoding/master/schemata/mei-CMN.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/music-encoding/music-encoding/master/schemata/mei-CMN.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<mei xmlns="http://www.music-encoding.org/ns/mei">
 <meiHead xml:id="m-2">
     <fileDesc xml:id="m-3">
         <titleStmt xml:id="m-4">
             <title xml:id="m-10">Sie liebten sich beide</title>
-            <title type="subtitle">
-                <identifier>Clara's encoded Lied</identifier>
+            <title xml:id="subtitle1" type="subtitle">
+                <identifier xml:id="title5">Clara's encoded Lied</identifier>
             </title>
-            <editor>Amy J Hunsaker</editor>
+            <editor xml:id="name2">Amy J Hunsaker</editor>
             <composer xml:id="m-11">Clara Schumann</composer>
             <lyricist xml:id="m-13">Heinrich Heine</lyricist>
-            <respStmt xml:id="m-15">
-                <persName xml:id="m-16"/>
-            </respStmt>
         </titleStmt>
         <pubStmt xml:id="m-17">
           <publisher>
-            <corpName>Digital Humanities Summer Institute</corpName>
+            <corpName xml:id="name3">Digital Humanities Summer Institute, </corpName>
           </publisher>
           <address>
               <addrLine>
-                  <geogName>Victoria</geogName>
-                  </addrLine>
+                  <geogName xml:id="name4">Victoria</geogName>
+              </addrLine>
           </address>
             <availability xml:id="m-18">
                 <useRestrict xml:id="m-19"/>
@@ -37,25 +37,40 @@
         </appInfo>
     </encodingDesc>
     <editionStmt>
-        <edition>first encoding
-          <date>2018-06-13</date>
+        <edition xml:id="edition1">first encoding
+          <date xml:id="date1" >2018-06-13</date>
           <respStmt>
-            <resp>Revised by</resp>
+            <resp xml:id="revise1">Amy Hunsaker</resp>
           </respStmt>
-            <name>Amy J Hunsaker</name>
+            <name xml:id="name1">Amy J Hunsaker</name>
         </edition>
     </editionStmt>
-    <extent></extent>
+    <notesStmt>
+      <annot xml:id="note1">Music xml created from pdf scan retrieved from MLSLP.</annot>
+      <annot xml:id="note2">OMR scanning performed by instructor of DHSI MEI encoding class held at University of Victoria.</annot>
+    </notesStmt>
+    <sourceDesc>
+      <titleStmt>
+        <title xml:id="titleMain" authURI="http://id.loc.gov/authorities/names/no98007098" authority="Library of Congress">Sie liebten sich beide</title>
+        <title xml:id="titleSub" type="subtitle" authURI="http://id.loc.gov/authorities/names/no95046716" authority="Library of Congress">Sie liebten sich beide</title>
+      </titleStmt>
+      <pubStmt xml:id="pub1">BreitKopf und Härtel</pubStmt>
+    </sourceDesc>
   </fileDesc>
   <workDesc>
         <work xml:id="m-6">
             <titleStmt xml:id="m-7">
                 <title xml:id="m-8">Sie liebten sich beide</title>
                 <respStmt xml:id="m-9">
-                    <persName xml:id="m-12" role="composer">Clara Schumann</persName>
-                    <persName xml:id="m-14" role="lyricist">Heinrich Heine</persName>
+                    <persName xml:id="m-12" role="composer" authURI="http://id.loc.gov/authorities/names/n50003165" authority="Library of Congress">Clara Schumann</persName>
+                    <persName xml:id="m-14" role="lyricist" authURI="http://id.loc.gov/authorities/names/n79081313" authority="Library of Congress">Heinrich Heine</persName>
                 </respStmt>
             </titleStmt>
+            <genre xml:id="genre1" authURI="http://id.loc.gov/authorities/genreForms/gf2014027103" authority="Library of Congress">Songs</genre>
+            <perfMedium>
+              <perfRes xml:id="genre2" authURI="https://musicbrainz.org/instrument/b3eac5f9-7859-4416-ac39-7154e2e8d348" authority="musicbrainz">Piano</perfRes>
+              <perfRes xml:id="genre3" authURI="http://dbpedia.org/page/Human_voice" authority="dbpedia">Human voice</perfRes>
+            </perfMedium>
         </work>
     </workDesc>
 </meiHead>
@@ -65,7 +80,6 @@
       <avFile targettype="youtube" target="https://youtu.be/sSYzk99wGxo?t=6s"></avFile>
       <clip begin="00:00:08.00" end="00:00:18.00" betype="time" n="m1" startid="#m-43"></clip>
       <clip begin="00:00:18.00" end="00:00:38.00" betype="time" n="m2" startid="#m-689"></clip>
-      <clip begin="00:00:38.00" end="00:00:38.00" betype="time" n="m3" startid="#m-689"></clip>
     </recording>
   </performance>
     <body xml:id="m-27">
